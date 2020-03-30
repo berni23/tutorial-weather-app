@@ -1,4 +1,4 @@
-package com.berni.android.forecast.data.respone
+package com.berni.android.forecast.data.db.entity
 
 
 import com.google.gson.annotations.SerializedName

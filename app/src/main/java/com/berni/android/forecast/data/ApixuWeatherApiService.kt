@@ -26,6 +26,7 @@ interface ApixuWeatherApiService {
 
    // http://api.weatherstack.com/current?access_key=829e6041af588bf077f2601786677121&query=New%20York
 
+   // http://api.weatherstack.com/current?access_key=829e6041af588bf077f2601786677121&query=Terrassa
 
     companion object {
 
