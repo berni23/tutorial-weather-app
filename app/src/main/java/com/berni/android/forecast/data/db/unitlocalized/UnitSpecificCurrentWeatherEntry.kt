@@ -2,12 +2,20 @@ package com.berni.android.forecast.data.db.unitlocalized
 
 interface UnitSpecificCurrentWeatherEntry {
 
-        val temperature: Double
+        val temp: Double
      // val conditionText: String
      // val conditionIconUrl: String
         val windSpeed: Double
-        val windDirection: String
-        val precipitationVolume: Double
-        val feelsLikeTemperature: Double
-        val visibilityDistance: Double
-    }
+        val windDir: String
+        val precip: Double
+        val feelsLike: Double
+        val vis: Double
+        val uvIndex: Double
+        val id : Int
+
+
+
+
+
+}
+

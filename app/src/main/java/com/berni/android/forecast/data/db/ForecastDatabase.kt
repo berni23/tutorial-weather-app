@@ -8,11 +8,9 @@ import com.berni.android.forecast.data.db.entity.CurrentWeatherEntry
 
 // interfaces do not have any implementation, but classes do
 
+@Database(entities = [CurrentWeatherEntry::class],version = 1, exportSchema = false)
 
-
-@Database(entities = [CurrentWeatherEntry::class],version = 1)
 abstract class ForecastDatabase : RoomDatabase() {
-
     abstract fun currentWeatherDao(): CurrentWeatherDao
 
     // we want the object to be a singelton ( just one single database)
@@ -30,7 +28,6 @@ abstract class ForecastDatabase : RoomDatabase() {
 
             instance?: buildDatabase(context).also {instance = it }
         }
-
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(context.applicationContext,ForecastDatabase::class.java,"forecast.db")
                 .build()

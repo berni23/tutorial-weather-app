@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.berni.android.forecast.R
-import com.berni.android.forecast.data.ApixuWeatherApiService
+import com.berni.android.forecast.data.network.ApixuWeatherApiService
 import kotlinx.android.synthetic.main.current_weather_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -28,7 +28,8 @@ class CurrentWeatherFragment : Fragment() {
             CurrentWeatherViewModel::class.java
         )
         // TODO: Use the ViewModel
-        val apiService = ApixuWeatherApiService()
+        val apiService =
+            ApixuWeatherApiService()
 
         GlobalScope.launch(Dispatchers.Main) {
 

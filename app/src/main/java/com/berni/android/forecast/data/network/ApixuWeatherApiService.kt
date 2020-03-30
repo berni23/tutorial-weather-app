@@ -1,4 +1,4 @@
-package com.berni.android.forecast.data
+package com.berni.android.forecast.data.network
 
 import com.berni.android.forecast.data.respone.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -37,7 +37,9 @@ interface ApixuWeatherApiService {
                 val url = chain.request()
                     .url()
                     .newBuilder()
-                    .addQueryParameter("access_key", API_KEY)
+                    .addQueryParameter("access_key",
+                        API_KEY
+                    )
                     .build()
                 val request = chain.request()
                     .newBuilder()
