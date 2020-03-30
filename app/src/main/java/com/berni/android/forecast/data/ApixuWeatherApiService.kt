@@ -17,7 +17,6 @@ const val API_KEY = "829e6041af588bf077f2601786677121"  // const val
 
 interface ApixuWeatherApiService {
 
-
     @GET("current")
     fun getCurrentWeather(
 
