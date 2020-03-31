@@ -14,11 +14,10 @@ const val CURRENT_WEATHER_ID = 0
 @Entity(tableName = "CurrentWeather")  // Room just works with primitive data types ( not classes), for that,  use @Embedded)
 data class CurrentWeatherEntry(
 
-
     @SerializedName("feelslike")
     val feelslike: Double,
-   // @SerializedName("is_day")
-   // val isDay: String,
+   @SerializedName("is_day")
+    val isDay: String,
    // @SerializedName("observation_time")
    // val observationTime: String,
     @SerializedName("precipitation")

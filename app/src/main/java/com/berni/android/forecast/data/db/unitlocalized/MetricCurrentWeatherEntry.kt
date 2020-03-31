@@ -4,8 +4,9 @@ import androidx.room.ColumnInfo
 import com.google.gson.annotations.SerializedName
 
 data class MetricCurrentWeatherEntry (
-  //  isDay, observationTime, precip, temperature, uvIndex, visibility, weatherCode, windDir, windSpeed, id
 
+    @ColumnInfo(name = "isDay")
+    override val isDay: String,
     @ColumnInfo(name = "feelslike")
     override val feelsLike: Double,
     @ColumnInfo(name ="precip")
@@ -22,6 +23,5 @@ data class MetricCurrentWeatherEntry (
     override val uvIndex: Double,
     @ColumnInfo(name = "id")
     override val id: Int
-
 
 ) : UnitSpecificCurrentWeatherEntry

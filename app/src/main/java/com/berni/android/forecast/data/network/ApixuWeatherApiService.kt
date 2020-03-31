@@ -24,20 +24,21 @@ interface ApixuWeatherApiService {
         @Query("lang") languageCode: String = "en"
     ): Deferred<CurrentWeatherResponse>
 
-   // http://api.weatherstack.com/current?access_key=829e6041af588bf077f2601786677121&query=New%20York
+    // http://api.weatherstack.com/current?access_key=829e6041af588bf077f2601786677121&query=New%20York
 
-   // http://api.weatherstack.com/current?access_key=829e6041af588bf077f2601786677121&query=Terrassa
+    // http://api.weatherstack.com/current?access_key=829e6041af588bf077f2601786677121&query=Terrassa
 
     companion object {
 
-        operator fun invoke(): ApixuWeatherApiService {   // does not necessarily need to be invoke, but it makes it easier to use
+        operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): ApixuWeatherApiService {   // does not necessarily need to be invoke, but it makes it easier to use
 
             val requestInterceptor = Interceptor { chain ->
 
                 val url = chain.request()
                     .url()
                     .newBuilder()
-                    .addQueryParameter("access_key",
+                    .addQueryParameter(
+                        "access_key",
                         API_KEY
                     )
                     .build()
@@ -52,6 +53,7 @@ interface ApixuWeatherApiService {
 
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
+                .addInterceptor(connectivityInterceptor)
                 .build()
 
             return Retrofit.Builder()
@@ -63,7 +65,5 @@ interface ApixuWeatherApiService {
                 .create(ApixuWeatherApiService::class.java)
 
         }
-
-
     }
 }

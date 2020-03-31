@@ -12,6 +12,7 @@ interface UnitSpecificCurrentWeatherEntry {
         val vis: Double
         val uvIndex: Double
         val id : Int
+        val isDay: String
 
 
 
